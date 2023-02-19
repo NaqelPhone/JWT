@@ -28,5 +28,5 @@ func main() {
 	private.Use(middleware.AuthRequired)
 	routes.PrivateRoutes(private)
 
-	router.Run(":")
+	router.Run("0.0.0.0:")
 }
