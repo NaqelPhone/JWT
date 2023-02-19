@@ -28,5 +28,5 @@ func main() {
 	private.Use(middleware.AuthRequired)
 	routes.PrivateRoutes(private)
 
-	router.Run("localhost:8080")
+	router.Run(":")
 }
