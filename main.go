@@ -1,32 +1,22 @@
 package main
 
 import (
-	"github.com/gin-contrib/sessions"
-	"github.com/gin-contrib/sessions/cookie"
+	"system/middleware"
+	"system/routes"
+
 	"github.com/gin-gonic/gin"
-
-	//"html/template"
-	//"strings"
-
-	globals "app/login/globals"
-	middleware "app/login/middleware"
-	routes "app/login/routes"
 )
 
 func main() {
+
 	router := gin.Default()
-
 	router.Static("/assets", "./assets")
-	router.LoadHTMLGlob("templates/*.html")
+	router.LoadHTMLGlob("templates/*")
+	routes.PublicRoutes(router)
+	router.Use(middleware.Auth())
+	routes.UserRoutes(router)
+	router.Use(middleware.Admin())
+	routes.AdminRoutes(router)
 
-	router.Use(sessions.Sessions("session", cookie.NewStore(globals.Secret)))
-
-	public := router.Group("/")
-	routes.PublicRoutes(public)
-
-	private := router.Group("/")
-	private.Use(middleware.AuthRequired)
-	routes.PrivateRoutes(private)
-
-	router.Run("0.0.0.0:5000")
+	router.Run(":8000")
 }

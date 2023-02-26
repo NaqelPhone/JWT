@@ -1,0 +1,84 @@
+
+{{template "header.html"}}
+    <title>Sign Up</title>
+</head>
+
+<body>
+    <div class="container">
+        <img class="img" src="\assets\new-user.png" alt="new-user">
+        <form action="/signup" method="post">
+            <div class="row">
+                <div class="col-25">
+                    <label for="firstname">First Name</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="firstname" name="firstname" placeholder="Please enter your firstname .. " required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="lastname">Last Name</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="lastname" name="lastname" placeholder="Please enter your lastname .. " required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="hospital">Hospital</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="hospital" name="hospital" placeholder="Please enter your hospital .. " required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="phone">Phone Number</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="phone" name="phone" pattern="01[0-9]{9}" placeholder="Please enter your phonenumber .. " required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="email">Email</label>
+                </div>
+                <div class="col-75">
+                    <input type="email" id="email" name="email" placeholder="Please enter your email .. ">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="username">Username</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="username" name="username" placeholder="Please enter your username .. " required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="password">Password</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="password" name="password" placeholder="Please enter a password .. " required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                  <label for="role">Select Role</label>
+                </div>
+                <div class="col-75">
+                  <select id="role" name="role">
+                    <option value="user" selected>User</option>
+                    <option value="admin">Admin</option>
+                  </select>
+                </div>
+              </div>
+            <br>
+            <div class="row">
+                <input type="submit" value="Create User">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
