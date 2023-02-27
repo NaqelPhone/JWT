@@ -37,7 +37,7 @@ func Login() gin.HandlerFunc {
 		helper.UpdateAllTokens(token, refreshToken, foundUser.UserID)
 		ginCtx.Writer.Header().Set("Token", token)
 		ginCtx.Writer.Header().Set("Authorization", "Bearer "+token)
-		ginCtx.SetCookie("token", token, 36000, "/", "localhost", false, true)
+		ginCtx.SetCookie("token", token, 36000, "/", "jwt-fywg.onrender.com", false, true)
 		ginCtx.JSON(http.StatusOK, gin.H{"message": "Logged in"})
 
 	}
