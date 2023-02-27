@@ -18,5 +18,5 @@ func main() {
 	router.Use(middleware.Admin())
 	routes.AdminRoutes(router)
 
-	router.Run(":")
+	router.Run(":5000")
 }
